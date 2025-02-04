@@ -1,0 +1,29 @@
+global:
+  # -- Default domain used by all components
+  ## Used for ingresses, certificates, SSO, notifications, etc.
+  domain: ""
+
+configs:
+  params:
+    server.insecure: true
+    server.basehref: /argocd
+    server.rootpath: /argocd
+  repositories:
+    checkpoint:
+      url: ""
+      password: my-password
+      username: my-username
+
+
+
+server:
+  replicas: 1
+  ingress:
+    enabled: true
+    controller: generic
+    annotations:
+      nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    ingressClassName: "nginx"
+    hostname: ""
+    path: /argocd
+    pathType: Prefix

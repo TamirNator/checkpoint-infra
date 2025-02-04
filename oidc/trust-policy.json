@@ -1,0 +1,20 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Federated": "arn:aws:iam::920373021859:oidc-provider/token.actions.githubusercontent.com"
+      },
+      "Action": "sts:AssumeRoleWithWebIdentity",
+      "Condition": {
+        "StringLike": {
+          "token.actions.githubusercontent.com:sub": [
+            "repo:TamirNator/checkpoint-infra:ref:refs/heads/main",
+            "repo:TamirNator/checkpoint:ref:refs/heads/main"
+          ]
+        }
+      }
+    }
+  ]
+}
