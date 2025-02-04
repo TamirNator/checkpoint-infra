@@ -70,3 +70,12 @@ data "aws_caller_identity" "current" {}
 data "aws_iam_user" "current_user" {
   user_name = "tamirna811"
 }
+
+resource "kubernetes_namespace" "dev" {
+  metadata {
+    name = "dev"
+    labels = {
+      environment = "development"
+    }
+  }
+}
