@@ -8,7 +8,12 @@
         "ec2:*",
         "s3:*",
         "iam:PassRole",
-        "sts:AssumeRole"
+        "iam:GetUser",
+        "secretsmanager:GetSecretValue",
+        "sts:AssumeRole",
+        "dynamodb:PutItem",
+        "dynamodb:GetItem",
+        "dynamodb:DeleteItem"
       ],
       "Resource": "*"
     }
