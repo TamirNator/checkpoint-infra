@@ -10,7 +10,13 @@ resource "kubernetes_role_binding" "dev_role_binding" {
   }
   subject {
     kind      = "User" 
-    name      = "arn:aws:iam::${data.aws_caller_identity.current.id}:role/GitHubOIDC-Terraform-Docker"
+    name      = "arn:aws:iam::${data.aws_caller_identity.current.id}:role/GitHubOIDC"
+    api_group = "rbac.authorization.k8s.io"
+    namespace = "default"
+  }
+    subject {
+    kind      = "User" 
+    name      = "arn:aws:iam::${data.aws_caller_identity.current.id}:user/tamirna811"
     api_group = "rbac.authorization.k8s.io"
     namespace = "default"
   }
