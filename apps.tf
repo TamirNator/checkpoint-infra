@@ -87,6 +87,10 @@ spec:
     namespace: dev
     syncOptions:
       - CreateNamespace=true
+    syncPolicy:
+      automated:
+        prune: true
+        selfHeal: true
 YAML
   depends_on = [ helm_release.argocd ]
 }
