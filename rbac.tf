@@ -1,7 +1,7 @@
 resource "kubernetes_role_binding" "dev_role_binding" {
   metadata {
     name      = "eks-dev-role-binding"
-    namespace = "default"
+    namespace = "dev"
   }
   role_ref {
     api_group = "rbac.authorization.k8s.io"
@@ -12,20 +12,20 @@ resource "kubernetes_role_binding" "dev_role_binding" {
     kind      = "User" 
     name      = "arn:aws:iam::${data.aws_caller_identity.current.id}:role/GitHubOIDC"
     api_group = "rbac.authorization.k8s.io"
-    namespace = "default"
+    namespace = "dev"
   }
     subject {
     kind      = "User" 
     name      = "arn:aws:iam::${data.aws_caller_identity.current.id}:user/tamirna811"
     api_group = "rbac.authorization.k8s.io"
-    namespace = "default"
+    namespace = "dev"
   }
 }
 
 resource "kubernetes_role" "dev_role" {
   metadata {
     name = "eks-dev-role"
-    namespace = "default"
+    namespace = "dev"
   }
   rule {
     api_groups     = [""]
