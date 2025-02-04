@@ -26,28 +26,28 @@ resource "helm_release" "nginx_ingress" {
   }
 }
 
-resource "helm_release" "grafana" {
-  name            = "grafana"
-  chart           = "grafana"
-  repository      = "https://grafana.github.io/helm-charts"
-  namespace       = "monitoring"
-  create_namespace = true
+# resource "helm_release" "grafana" {
+#   name            = "grafana"
+#   chart           = "grafana"
+#   repository      = "https://grafana.github.io/helm-charts"
+#   namespace       = "monitoring"
+#   create_namespace = true
 
-  values = [file("${path.module}/manifests/grafana-values.yaml")]
+#   values = [file("${path.module}/manifests/grafana-values.yaml")]
 
-  depends_on = [module.eks]
-}
+#   depends_on = [module.eks]
+# }
 
-resource "helm_release" "prometheus" {
-  name            = "kube-prometheus-stack"
-  chart           = "kube-prometheus-stack"
-  repository      = "https://prometheus-community.github.io/helm-charts"
-  namespace       = "monitoring"
+# resource "helm_release" "prometheus" {
+#   name            = "kube-prometheus-stack"
+#   chart           = "kube-prometheus-stack"
+#   repository      = "https://prometheus-community.github.io/helm-charts"
+#   namespace       = "monitoring"
 
-  values = [file("${path.module}/manifests/prometheus-values.yaml")]
+#   values = [file("${path.module}/manifests/prometheus-values.yaml")]
 
-  depends_on = [module.eks, helm_release.grafana]
-}
+#   depends_on = [module.eks, helm_release.grafana]
+# }
 
 
 data "aws_secretsmanager_secret_version" "github_pat" {
