@@ -64,6 +64,8 @@ jobs:
           secret: ${{ github.TOKEN }}
           approvers: tamirna811@gmail.com
           minimum-approvals: 1
+          issue-title: "Terraform Destroy"
+          issue-body: "Please approve or deny Terraform Destroy"
 
       - name: Checkout Repository
         uses: actions/checkout@v4
