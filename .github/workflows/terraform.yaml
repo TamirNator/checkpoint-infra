@@ -17,6 +17,7 @@ on:
 permissions:
   id-token: write
   contents: read
+  issues: write
 
 env:
   AWS_ACCOUNT_ID: "920373021859"
