@@ -56,7 +56,6 @@ jobs:
     name: Terraform Destroy (Manual Only)
     runs-on: ubuntu-latest
     needs: apply
-    if: github.event_name == 'workflow_dispatch'
     steps:
       - name: Wait for approval
         uses: trstringer/manual-approval@v1
