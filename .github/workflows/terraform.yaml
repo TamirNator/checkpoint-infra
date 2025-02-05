@@ -58,6 +58,13 @@ jobs:
     needs: apply
     if: github.event_name == 'workflow_dispatch'
     steps:
+      - name: Wait for approval
+        uses: trstringer/manual-approval@v1
+        with:
+          secret: ${{ github.TOKEN }}
+          approvers: tamirna811@gmail.com
+          minimum-approvals: 1
+
       - name: Checkout Repository
         uses: actions/checkout@v4
 
