@@ -62,7 +62,7 @@ jobs:
         uses: trstringer/manual-approval@v1
         with:
           secret: ${{ github.TOKEN }}
-          approvers: tamirna811@gmail.com
+          approvers: TamirNator
           minimum-approvals: 1
           issue-title: "Terraform Destroy"
           issue-body: "Please approve or deny Terraform Destroy"
